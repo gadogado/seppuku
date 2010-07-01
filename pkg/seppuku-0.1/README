@@ -1,6 +1,11 @@
 = Project: Seppuku
 
-= Description: a cmdline utility that simplifies killing procs listed in your ps table
+= Description: 
+
+Seppuku is a cmdline utility that simplifies killing procs listed in your ps table.
+You simply specify the kill level and program name you want to kill - Seppuku will
+prompt you to either kill *all* matches in the ps table, or, prompt you for each process
+entry found.
 
 = Usage
 
@@ -14,8 +19,16 @@ Usage: seppuku [options]
 
 seppuku -l 9 - n deathrow_program
 
+
 = Installation
 
-gem install seppuku
+Gem is hosted on gemcutter.org
+
+1.) gem install seppuku
+
+= Notes:
+the ps scan regexp might not work with *all* system ps utilities; if you experience any problems try to change
+the ps related constants within the main lib file.
+
 
 

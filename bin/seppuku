@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 # G Ereth, 2010
 
-require 'lib/seppuku'
+require File.join(File.dirname(__FILE__), '/../lib/seppuku')
 
 Seppuku.run
