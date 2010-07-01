@@ -6,22 +6,20 @@ Seppuku will prompt you whether you'd like to kill all listed matches or if you'
 to pick and choose.
 
 =Usage
-  seppku -h 
+  seppuku -h 
   Usage: seppuku [options] 
       -n, --name NAME                  Process name within ps table 
       -l, --level LEVEL                Kill level for operation 
       -h, --help                       Show this screen 
 
-=Examples
+=Example
   seppuku -l 9 - n deathrow_program
-  seppuku -h
+
 
 =Installation
   gem install seppuku
 
 =Notes
-the ps scan regexp might not work with *all* system ps utilities; if you experience any problems try to change
-the ps related constants within the main lib file.
-
+  should work with most distros. tested with bsd and debian.
 
 
