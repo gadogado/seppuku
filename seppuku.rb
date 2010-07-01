@@ -47,7 +47,7 @@ class Seppuku
     end
 
     def draw!
-      puts '<-> nothing to kill <->' if matches.empty?
+      disengage if matches.empty?
       dots  = "."*23
       hding = "#{dots}\n#{matches.size} matches were found!\n"
       puts matches.map {|m| match(m) }.push(hding)
@@ -75,6 +75,10 @@ class Seppuku
         kill_wisely(matches)
       end
     end
+    
+    def disengage
+      puts '<-> nothing to kill <->' && exit
+    end
 
     def kill(m)
       begin
@@ -99,23 +103,21 @@ class Seppuku
     def kill_ques(type)
       puts "> (y/n) ? kill -#{@parser[:level]} [#{type}]"
     end
-    
-    def ready
-      @parser={}
-      
-      opt_parser = OptionParser.new do |op|
-        op.on( '-l', '--level LEVEL', "Kill level for operation") do |level|
-          @parser[:level] = level
-        end
-        op.on('-n', '--name NAME', "Process name within ps table") do |name|
-          @parser[:name] = name
-        end
-        op.on('-h', '--help', 'Show this screen') { puts opt_parser; exit }
-      end
 
-      opt_parser.parse!
-      if @parser[:level].nil? || @parser[:name].nil?
-        puts opt_parser
+    def ready
+      @opts={}
+      options = OptionParser.new do |op|
+        op.on('-n','--name NAME',"Process name within ps table") { |n| @opts[:name] = n }
+        op.on( '-l','--level LEVEL',"Kill level for operation")  { |l| @opts[:level] = l }
+        op.on('-h', '--help', 'Show this screen') { puts options; exit }
+      end
+      parse(options)
+    end
+    
+    def parse(options)
+      options.parse!
+      if @opts[:level].nil? || @opts[:name].nil?
+        puts options
         raise OptionParser::MissingArgument  
       end            
     end
