@@ -6,7 +6,6 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Geoff Ereth"]
-  s.cert_chain = ["/Users/geoff/code/gem-public_cert.pem"]
   s.date = %q{2010-07-01}
   s.default_executable = %q{seppuku}
   s.description = %q{a ruby cmdline utility that simplifies killing procs listed in your ps table}
@@ -19,7 +18,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{seppuku}
   s.rubygems_version = %q{1.3.7}
-  s.signing_key = %q{/Users/geoff/code/gem-private_key.pem}
   s.summary = %q{a ruby cmdline utility that simplifies killing procs listed in your ps table}
 
   if s.respond_to? :specification_version then
