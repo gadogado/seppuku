@@ -2,7 +2,6 @@
 
 # Seppuku, a rb cmdline utility to quickly kill procs
 # -> pls adjust the constants respective to your systems ps.
-# the defaults were setup for ps that ships w/ osx 10.6.3
 # gadogado, 2010
 
 require 'rubygems'
@@ -21,7 +20,7 @@ class Seppuku
     end
 
     def search
-      @search ||= Regexp.new(@parser[:name])
+      @search ||= Regexp.new(@opts[:name])
     end
 
     def command
@@ -83,7 +82,7 @@ class Seppuku
     def kill(m)
       begin
         pid = m.first
-        cmd = "kill -#{@parser[:level]} #{pid}"
+        cmd = "kill -#{@opts[:level]} #{pid}"
         command.call(cmd)
         puts "<.> killed:#{pid} <.>" 
         
@@ -101,7 +100,7 @@ class Seppuku
     end
 
     def kill_ques(type)
-      puts "> (y/n) ? kill -#{@parser[:level]} [#{type}]"
+      puts "> (y/n) ? kill -#{@opts[:level]} [#{type}]"
     end
 
     def ready
