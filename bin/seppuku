@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# G Ereth, 2010
+
+require 'lib/seppuku'
+
+Seppuku.run
