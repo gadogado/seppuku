@@ -1,0 +1,13 @@
+= Project: Seppuku
+
+= Description: a ruby cmdline utility that simplifies killing procs listed in your ps table
+
+= Usage
+
+== options
+
+@ seppku -h @
+@ Usage: seppuku [options] @
+@    -n, --name NAME                  Process name within ps table @
+@    -l, --level LEVEL                Kill level for operation @
+@    -h, --help                       Show this screen @
