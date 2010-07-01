@@ -1,9 +1,9 @@
 =Seppuku
 
-Seppuku is a cmdline utility that simplifies killing procs listed in your ps table.
-You simply specify the kill level and program name you want to kill - Seppuku will
-prompt you to either kill *all* matches in the ps table, or, prompt you for each process
-entry found.
+Seppuku brings simplification to killing procs in the ps table. 
+Just specify the kill level and program name with the command-line switches;
+Seppuku will prompt you whether you'd like to kill all listed matches or if you'd like
+to pick and choose.
 
 =Usage
   seppku -h 
@@ -12,16 +12,16 @@ entry found.
       -l, --level LEVEL                Kill level for operation 
       -h, --help                       Show this screen 
 
-=Example
+=Examples
   seppuku -l 9 - n deathrow_program
-
+  seppuku -h
 
 =Installation
   gem install seppuku
 
 =Notes
-  the ps scan regexp might not work with *all* system ps utilities; if you experience any problems try to change
-  the ps related constants within the main lib file.
+the ps scan regexp might not work with *all* system ps utilities; if you experience any problems try to change
+the ps related constants within the main lib file.
 
 
 
