@@ -13,7 +13,7 @@ to pick and choose.
       -h, --help                       Show this screen 
 
 =Example
-  seppuku -l 9 - n deathrow_program
+  seppuku -l 9 -n deathrow_program
 
 
 =Installation
