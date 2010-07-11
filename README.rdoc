@@ -1,6 +1,6 @@
 =Seppuku
 
-Seppuku brings simplification to killing procs in the ps table. 
+Seppuku is a ruby cmdline utility that simplifies killing running processes.
 Just specify the kill level and program name with the command-line switches;
 Seppuku will prompt you whether you'd like to kill all listed matches or if you'd like
 to pick and choose.
@@ -13,7 +13,7 @@ to pick and choose.
       -h, --help                       Show this screen 
 
 =Example
-  seppuku -l 9 -n deathrow_program
+  sudo seppuku -l 9 -n program_name
 
 
 =Installation

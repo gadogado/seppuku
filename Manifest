@@ -1,5 +1,6 @@
-README
+Manifest
+README.rdoc
 Rakefile
 bin/seppuku
 lib/seppuku.rb
-Manifest
+seppuku.gemspec

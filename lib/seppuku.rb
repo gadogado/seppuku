@@ -2,7 +2,7 @@ require 'rubygems'
 require 'optparse'
 require 'open3'
 
-REGEXP = /^(\d+)\s+(.*?)$/
+REGEXP = /(\d+)\s+(.*?)$/
 PS = 'ps ax -o pid -o command'
 
 class Seppuku
@@ -14,7 +14,7 @@ class Seppuku
     end
 
     def search
-      @search ||= Regexp.new(@opts[:name])
+      @search ||= Regexp.new(@opts[:name]) 
     end
 
     def command
@@ -62,7 +62,7 @@ class Seppuku
     def kill_all_or_wisely
       if matches.size > 1
         kill_ques('*ALL*')
-        ans = gets
+        ans = STDIN.gets
         proceed.call(ans) ? kill_all(matches) : kill_wisely(matches)
       else
         kill_wisely(matches)
@@ -70,8 +70,7 @@ class Seppuku
     end
     
     def disengage
-      puts '<-> nothing to kill <->'
-      exit
+      puts '<-> nothing to kill <->'; exit
     end
 
     def kill(m)
@@ -80,7 +79,6 @@ class Seppuku
         cmd = "kill -#{@opts[:level]} #{pid}"
         command.call(cmd)
         puts "<.> killed:#{pid} <.>" 
-        
       rescue Exception => msg
         puts "#{msg} #{msg.backtrace.join(' ')}"
       end
@@ -91,33 +89,27 @@ class Seppuku
     end
 
     def match(m)
-      "> #{m.join(' : ')}"
+      "[*] #{m.join(' -- ')}"
     end
 
     def kill_ques(type)
-      puts "> (y/n) ? kill -#{@opts[:level]} [#{type}]"
+      puts "[y/n] kill #{type} (?):"
     end
 
     def ready
       @opts={}
-      options = OptionParser.new do |op|
-        op.on('-n','--name NAME',"Process name within ps table") { |n| @opts[:name] = n }
-        op.on('-l','--level LEVEL',"Kill level for operation")  { |l| @opts[:level] = l }
-        op.on('-h', '--help', 'Show this screen') { puts options; exit }
+      options = OptionParser.new do |opt|
+        opt.on('-n','--name NAME',"Process name within ps table") { |name| @opts[:name] = name }
+        opt.on('-l','--level LEVEL',"Kill level for operation")  { |level| @opts[:level] = level }
+        opt.on('-h', '--help', 'Show this screen') { puts options; exit }
       end 
       parse(options)
     end
     
     def parse(options)
       options.parse!
-      if @opts[:level].nil? || @opts[:name].nil?
-        puts options
-        raise OptionParser::MissingArgument  
-      end            
+      ( puts options; exit ) unless @opts[:name] && @opts[:level] 
     end
-
+    
   end
 end
-
-
-

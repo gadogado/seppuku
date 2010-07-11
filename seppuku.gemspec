@@ -2,19 +2,19 @@
 
 Gem::Specification.new do |s|
   s.name = %q{seppuku}
-  s.version = "0.2"
+  s.version = "0.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Geoff Ereth"]
-  s.date = %q{2010-07-01}
+  s.date = %q{2010-07-11}
   s.default_executable = %q{seppuku}
   s.description = %q{a ruby cmdline utility that simplifies killing procs listed in your ps table}
   s.email = %q{geoffereth @nospamplease@ gmail com}
   s.executables = ["seppuku"]
-  s.extra_rdoc_files = ["README", "bin/seppuku", "lib/seppuku.rb"]
-  s.files = ["README", "Rakefile", "bin/seppuku", "lib/seppuku.rb", "Manifest", "seppuku.gemspec"]
+  s.extra_rdoc_files = ["README.rdoc", "bin/seppuku", "lib/seppuku.rb"]
+  s.files = ["Manifest", "README.rdoc", "Rakefile", "bin/seppuku", "lib/seppuku.rb", "seppuku.gemspec"]
   s.homepage = %q{http://github.com/gadogado/seppuku}
-  s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Seppuku", "--main", "README"]
+  s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Seppuku", "--main", "README.rdoc"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{seppuku}
   s.rubygems_version = %q{1.3.7}

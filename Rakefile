@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('seppuku', '0.2') do |p|
+Echoe.new('seppuku', '0.2.1') do |p|
   p.description    = "a ruby cmdline utility that simplifies killing procs listed in your ps table"
   p.url            = "http://github.com/gadogado/seppuku"
   p.author         = "Geoff Ereth"
